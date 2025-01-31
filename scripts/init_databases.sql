@@ -1,8 +1,7 @@
 /*
 ===================================================================================
 Script Name  : DataWarehouse_Setup.sql
-Author       : [Your Name]
-Date Created : [Date]
+Author       : Abishek R
 Description  : This script initializes the Data Warehouse environment by:
                1. Dropping the existing 'DataWarehouse' database if it exists.
                2. Creating a new 'DataWarehouse' database.
