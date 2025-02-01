@@ -1,28 +1,48 @@
--- Check for nulls and duplicates in primary key in erp_cust_az12 
--- Expectations : No results
+/***************************************************************************************
+Script: Validation for `silver.erp_cust_az12` Table After Transformation
+Purpose: This script validates the data quality of the `silver.erp_cust_az12` table after transformation.
+         It checks for:
+         1. Consistency with `silver.crm_cust_info` (matching `cid` with `cst_key`).
+         2. No invalid dates in `bdate` column.
+         3. No nulls in `gen` (gender) column.
+Expectations:
+         - No mismatched IDs between `silver.erp_cust_az12` and `silver.crm_cust_info`.
+         - No invalid dates in `bdate` column.
+         - No nulls in `gen` column.
+Author: [Your Name]
+Date: [Date]
+***************************************************************************************/
 
-	SELECT 
-		  cid 
-		, bdate
-		, gen
-	FROM silver.erp_cust_az12
-	WHERE cid not in (select cst_key from silver.crm_cust_info) --- these ids are matcing because of NAS
+-- Check for mismatched IDs between `silver.erp_cust_az12` and `silver.crm_cust_info`
+-- Expectations: No results (all IDs should match)
+
+SELECT 
+    cid,
+    bdate,
+    gen
+FROM silver.erp_cust_az12
+WHERE cid NOT IN (SELECT cst_key FROM silver.crm_cust_info); -- Check for mismatched IDs
 
 ---------------------------------------------------------------------------------------
--- check for wrong dates in bdate column
 
-	SELECT 
-		  cid 
-		, bdate
-		, gen
-	FROM silver.erp_cust_az12
-	WHERE bdate >= GETDATE()  -- there are not future bdate
+-- Check for invalid dates in `bdate` column
+-- Expectations: No results (no future dates in `bdate` column)
+
+SELECT 
+    cid,
+    bdate,
+    gen
+FROM silver.erp_cust_az12
+WHERE bdate >= GETDATE(); -- Check for invalid dates
 
 ---------------------------------------------------------------------------------------
--- checking for null in gender columns
-	SELECT 
-		  cid 
-		, bdate
-		, gen
-	FROM silver.erp_cust_az12
-	WHERE gen IS NULL  --- There are no null values
+
+-- Check for nulls in `gen` (gender) column
+-- Expectations: No results (no nulls in `gen` column)
+
+SELECT 
+    cid,
+    bdate,
+    gen
+FROM silver.erp_cust_az12
+WHERE gen IS NULL; -- Check for nulls in `gen` column
