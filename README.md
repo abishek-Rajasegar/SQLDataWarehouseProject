@@ -1,69 +1,87 @@
-**SQLDataWarehouseProject**
+# SQLDataWarehouseProject
 
-Welcome to the SQL Data Warehouse Project, a modern and scalable data warehousing solution designed to handle large volumes of data, transform it into actionable insights, and enable analytics and machine learning. This project leverages the Extract, Transform, and Store (ETS) processes, robust data modeling, and advanced analytics capabilities.
+Welcome to the **SQL Data Warehouse Project**, a modern and scalable data warehousing solution designed to handle large volumes of data, transform it into actionable insights, and enable analytics and machine learning. This project leverages the **Extract, Transform, and Store (ETS)** processes, robust data modeling, and advanced analytics capabilities.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-**Key Components:**
+## Key Components
 
-Sources: Data ingestion from CRM and ERP systems.
+### **Sources**
+- Data ingestion from **CRM** and **ERP** systems.
+- **File types:** CSV files.
+- **Interface:** Files in folders.
 
-File types: CSV files.
+---
 
-Interface: Files in folders.
+## **Bronze Layer**
+### **Purpose**
+- Store raw data as-is.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### **Object Type**
+- Tables.
 
-**Bronze Layer:**
+### **Load Mechanism**
+- Batch processing.
+- Full load, truncate & insert.
 
-Purpose: Store raw data as-is.
+### **Transformations**
+- None.
 
-Object Type: Tables.
+### **Data Model**
+- None.
 
-Load Mechanism: Batch processing, full load, truncate & insert.
+---
 
-Transformations: None.
+## **Silver Layer**
+### **Purpose**
+- Clean and standardize data.
 
-Data Model: None.
+### **Object Type**
+- Tables.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### **Load Mechanism**
+- Batch processing.
+- Full load, truncate & insert.
 
-**Silver Layer:**
+### **Transformations**
+- Data cleansing.
+- Standardization.
+- Normalization.
+- Derived columns.
+- Enrichment.
 
-Purpose: Clean and standardize data.
+### **Data Model**
+- None.
 
-Object Type: Tables.
+---
 
-Load Mechanism: Batch processing, full load, truncate & insert.
+## **Gold Layer**
+### **Purpose**
+- Provide business-ready data.
 
-Transformations: Data cleansing, standardization, normalization, derived columns, enrichment.
+### **Object Type**
+- Views.
 
-Data Model: None.
+### **Load Mechanism**
+- None (data is queried directly).
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### **Transformations**
+- Data integrations.
+- Aggregations.
+- Business logic.
 
-**Gold Layer:**
+### **Data Model**
+- Star schema.
+- Flat tables.
+- Aggregated tables.
 
-Purpose: Provide business-ready data.
+---
 
-Object Type: Views.
+## **Consume**
 
-Load Mechanism: None (data is queried directly).
+### **Tools for analytics and reporting**
+- **Business Intelligence tools** (e.g., Power BI, Tableau).
+- **Ad-hoc SQL queries.**
 
-Transformations: Data integrations, aggregations, and business logic.
+This structured approach ensures scalability, data integrity, and optimized analytics, enabling organizations to derive meaningful insights efficiently.
 
-Data Model: Star schema, flat tables, aggregated tables.
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-**Consume:**
-
-Tools for analytics and reporting, including:
-
-Business Intelligence tools (e.g., Power BI, Tableau).
-
-Ad-hoc SQL queries.
-
-Machine learning integrations.
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
